@@ -1,6 +1,7 @@
 package com.example.benavidezapp.data
 
 import com.example.benavidezapp.R
+import com.example.benavidezapp.model.LugarRecomendado
 import com.example.benavidezapp.utils.categoriasEnum
 
 object ProveedorDataLocal {
@@ -23,7 +24,7 @@ object ProveedorDataLocal {
         LugarRecomendado(
             id = 3,
             nombre = R.string.nomb_starbucks,
-            descripcion =R.string.desc_starbucks,
+            descripcion = R.string.desc_starbucks,
             imagen = R.drawable.starbucks_benavidez,
             categoria = categoriasEnum.CAFETERIAS
         ),
@@ -45,8 +46,8 @@ object ProveedorDataLocal {
         ),
         LugarRecomendado(
             id = 6,
-            nombre =R.string.nomb_club_benavidez,
-            descripcion =R.string.desc_club_benavidez,
+            nombre = R.string.nomb_club_benavidez,
+            descripcion = R.string.desc_club_benavidez,
             imagen = R.drawable.el_club_benavidez,
             categoria = categoriasEnum.RESTAURANTS
         ),
@@ -62,14 +63,14 @@ object ProveedorDataLocal {
         LugarRecomendado(
             id = 8,
             nombre = R.string.nomb_torre_pueblo,
-            descripcion =R.string.desc_torre_pueblo,
+            descripcion = R.string.desc_torre_pueblo,
             imagen = R.drawable.torre_pueblo,
             categoria = categoriasEnum.ENTRETENIMIENTO_NINOS
         ),
         LugarRecomendado(
             id = 9,
             nombre = R.string.nomb_neverland,
-            descripcion =R.string.desc_neverland,
+            descripcion = R.string.desc_neverland,
             imagen = R.drawable.neverland_nordelta,
             categoria = categoriasEnum.ENTRETENIMIENTO_NINOS
         ),

@@ -1,4 +1,4 @@
-package com.example.benavidezapp.data
+package com.example.benavidezapp.model
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
