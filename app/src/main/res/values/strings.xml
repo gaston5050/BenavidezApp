@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">BenavidezApp</string>
+
+        //categorias
+        <string name="cat_cafeterias">Cafeterías</string>
+        <string name="cat_restaurantes">Restaurantes</string>
+        <string name="cat_ninos">Entretenimiento Niños</string>
+        <string name="cat_parques">Parques</string>
+        <string name="cat_panaderias">Panaderías</string>
+
+        //descripcison de lugares
+        <string name="desc_en_calma">Un refugio sereno donde el café está bien extraído y la música no compite con las conversaciones. Ideal para leer o trabajar.</string>
+        <string name="desc_alex_coffee">Café de especialidad con gran cuidado en el grano y métodos de preparación. Perfecto para fanáticos del buen café.</string>
+        <string name="desc_starbucks">Consistencia asegurada, enchufes para trabajar y rapidez. Confiable para reuniones informales o largas tardes con notebook.</string>
+
+        <string name="desc_mestizo">Cocina moderna con platos bien presentados y sabores equilibrados. Ambiente relajado ideal para almuerzos o cenas.</string>
+        <string name="desc_la_selva">Parrilla clásica: carnes jugosas, porciones generosas y trato familiar. Argentina sin vueltas gourmet.</string>
+        <string name="desc_club_benavidez">Cocina casera bien cuidada y ambiente cálido. Ideal para familias o encuentros tranquilos.</string>
+
+        <string name="desc_euca_tigre">Circuitos de aventura en altura, tirolesas y puentes colgantes. Muy seguro y divertido para chicos y adultos.</string>
+        <string name="desc_torre_pueblo">Estética de pueblo europeo. Tranquilo, visualmente atractivo y fácil de recorrer en familia.</string>
+        <string name="desc_neverland">Parque de juegos cubierto con máquinas de tickets y atracciones mecánicas. Ideal para días de lluvia y diversión garantizada para los más chicos.</string>
+
+        <string name="desc_plaza_san_martin">Pulmón verde ideal para caminar, leer o hacer picnic. Una pausa natural en medio del movimiento del barrio.</string>
+        <string name="desc_paseo_bahia">Caminata junto al agua en el área de Nordelta/Villanueva. Vistas abiertas, aire puro y un sendero perfecto para caminar o andar en bici al atardecer.</string>
+        <string name="desc_poli_benavidez">Amplio predio verde con canchas, senderos para caminar y mucha arboleda. Ideal para hacer ejercicio o tardes en familia.</string>
+
+        <string name="desc_marino">Una institución en el barrio. Ubicada sobre la avenida principal, famosa por su pan artesanal y facturas. Dirección: Av. Benavídez 2819.</string>
+        <string name="desc_alvear">Punto de encuentro tradicional en pleno centro. Excelente atención, facturas frescas y sándwiches de miga. Dirección: Av. Alvear 2602.</string>
+        <string name="desc_fabrica_pan">Local moderno que combina panadería con cafetería. Panes especiales y sándwiches de miga. Dirección: Av. Gral. Juan Domingo Perón 2500.</string>
+
+        // nombres
+
+    <string name="nomb_en_calma">En Calma Café</string>
+    <string name="nomb_alex_coffee">Alex Coffee Roasters</string>
+    <string name="nomb_starbucks">Starbucks Benavídez</string>
+
+    <string name="nomb_mestizo">Mestizo Complejo Deli</string>
+    <string name="nomb_la_selva">Parrilla La Selva</string>
+    <string name="nomb_club_benavidez">El Club Benavídez</string>
+
+    <string name="nomb_euca_tigre">Parque Aéreo Euca Tigre</string>
+    <string name="nomb_torre_pueblo">Torre Pueblo</string>
+    <string name="nomb_neverland">Neverland Nordelta</string>
+
+    <string name="nomb_plaza_san_martin">Plaza San Martín</string>
+    <string name="nomb_paseo_bahia">Paseo de la Bahía</string>
+    <string name="nomb_poli_benavidez">Polideportivo Municipal</string>
+
+    <string name="nomb_marino">Panadería Marino</string>
+    <string name="nomb_alvear">Panadería Alvear</string>
+    <string name="nomb_fabrica_pan">Fábrica de Pan (Benavídez)</string>
+
+</resources>
