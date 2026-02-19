@@ -5,6 +5,9 @@ import com.example.benavidezapp.model.LugarRecomendado
 import com.example.benavidezapp.utils.categoriasEnum
 
 object ProveedorDataLocal {
+    fun obtenerLugares(): List<LugarRecomendado> {
+        return lugares
+    }
     val lugares = listOf(
        //cafeterias
         LugarRecomendado(
@@ -122,4 +125,10 @@ object ProveedorDataLocal {
             categoria = categoriasEnum.PANADERIAS
         )
     )
+
+    fun filtrado(categoria: categoriasEnum): List<LugarRecomendado> {
+        return lugares.filter { it.categoria == categoria }
+    }
 }
+
+
