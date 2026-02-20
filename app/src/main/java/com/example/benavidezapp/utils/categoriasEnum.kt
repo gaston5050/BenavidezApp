@@ -5,8 +5,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 enum class categoriasEnum(
-    @StringRes val nombreRes: Int,
-    @DrawableRes val icono: Int
+    val nombreRes: Int,
+    val icono: Int
 ) {
     CAFETERIAS(R.string.cat_cafeterias, R.drawable.ic_cafe),
     RESTAURANTS(R.string.cat_restaurantes, R.drawable.ic_restaurante),
