@@ -22,12 +22,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.benavidezapp.R
+import com.example.benavidezapp.model.LugarRecomendado
 
 
 @Composable
-fun LugarItem(nombre: Int , imagen: Int){
+fun LugarItem(nombre: Int , imagen: Int, ){
 
-    Card(Modifier.fillMaxWidth()){
+    Card(Modifier.fillMaxWidth(),
+
+        ){
         Row(
             modifier = Modifier.fillMaxWidth().
             padding(10.dp),
