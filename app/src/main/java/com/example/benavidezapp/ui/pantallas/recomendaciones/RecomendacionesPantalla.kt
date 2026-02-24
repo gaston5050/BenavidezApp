@@ -17,13 +17,13 @@ import com.example.benavidezapp.utils.categoriasEnum
 
 @Composable
 fun recomendacionesPantalla(modifier: Modifier = Modifier.fillMaxWidth()
-    .padding(10.dp), categoria: categoriasEnum){
+    .padding(10.dp), categoria: categoriasEnum,){
 
     val lugares = ProveedorDataLocal.filtrado(categoria)
     LazyColumn{
         items(lugares.size) {
 
-                item -> (LugarItem(nombre = lugares[item].nombre, imagen = lugares[item].imagen))
+                item -> (LugarItem(nombre = lugares[item].nombre, imagen = lugares[item].imagen,onItemClick = {}))
             Spacer(modifier = Modifier.size(10.dp))
         }
     }

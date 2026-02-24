@@ -21,8 +21,7 @@ fun categoriasPantalla( onItemClick: (categoriasEnum) -> Unit,
 
     LazyColumn{
         items(categorias.size) {
-            item -> (LugarItem(nombre = categorias[item].nombreRes, imagen = categorias[item].icono))
-            onItemClick(categorias[item])
+            item -> (LugarItem(nombre = categorias[item].nombreRes, imagen = categorias[item].icono, onItemClick = {onItemClick(categorias[item])}))
             Spacer(modifier = Modifier.size(10.dp))
         }
     }
