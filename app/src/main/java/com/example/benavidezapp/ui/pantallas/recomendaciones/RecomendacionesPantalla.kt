@@ -9,21 +9,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.benavidezapp.data.ProveedorDataLocal
+import com.example.benavidezapp.model.LugarRecomendado
 import com.example.benavidezapp.ui.componentes.LugarItem
 import com.example.benavidezapp.ui.pantallas.categorias.categoriasPantalla
 import com.example.benavidezapp.utils.categoriasEnum
 
 
 @Composable
-fun recomendacionesPantalla(modifier: Modifier = Modifier.fillMaxWidth()
-    .padding(10.dp), categoria: categoriasEnum,){
+fun recomendacionesPantalla( listaLugaresFiltrada: List<LugarRecomendado>,
+                             onItemClick: (LugarRecomendado) -> Unit,
+                            modifier: Modifier = Modifier.fillMaxWidth()
+    .padding(10.dp)
+                            ){
 
-    val lugares = ProveedorDataLocal.filtrado(categoria)
+
     LazyColumn{
-        items(lugares.size) {
+        items(listaLugaresFiltrada.size) {
 
-                item -> (LugarItem(nombre = lugares[item].nombre, imagen = lugares[item].imagen,onItemClick = {}))
+                item -> (LugarItem(nombre = listaLugaresFiltrada[item].nombre, imagen = listaLugaresFiltrada[item].imagen,onItemClick = {onItemClick(listaLugaresFiltrada[item])}))
             Spacer(modifier = Modifier.size(10.dp))
         }
     }
@@ -35,5 +40,7 @@ fun recomendacionesPantalla(modifier: Modifier = Modifier.fillMaxWidth()
 @Preview
 @Composable
 fun categoriasPantallaPreview(){
-    recomendacionesPantalla(categoria = categoriasEnum.CAFETERIAS)
+
+
+  //  recomendacionesPantalla(categoria = categoriasEnum.CAFETERIAS)
 }

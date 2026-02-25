@@ -15,7 +15,7 @@ class BenavidezAppViewModel : ViewModel(){
     private val _uiState = MutableStateFlow(
         BenavidezUiState(
             listaLugares = ProveedorDataLocal.obtenerLugares()
-            , categoriaSeleccionada = categoriasEnum.CAFETERIAS
+            , categoriaSeleccionada = null
             , lugarSeleccionado = null
             ))
     val uiState: StateFlow<BenavidezUiState> = _uiState.asStateFlow()
@@ -45,7 +45,7 @@ class BenavidezAppViewModel : ViewModel(){
 
 data class BenavidezUiState(
     val listaLugares: List<LugarRecomendado> = emptyList(),
-    val categoriaSeleccionada: categoriasEnum = categoriasEnum.CAFETERIAS,
+    val categoriaSeleccionada: categoriasEnum? = null,
     val lugarSeleccionado: LugarRecomendado? = null
 
     )

@@ -21,8 +21,8 @@ import com.example.benavidezapp.ui.componentes.LugarItem
 import com.example.benavidezapp.utils.categoriasEnum
 
 @Composable
-fun detallePantalla(modifier: Modifier = Modifier
-    .padding(10.dp), categoria: categoriasEnum, LugarRecomendado: LugarRecomendado
+fun detallePantalla(LugarRecomendado: LugarRecomendado,modifier: Modifier = Modifier
+    .padding(10.dp)
 ){
 
 
@@ -46,5 +46,5 @@ fun detallePantalla(modifier: Modifier = Modifier
 @Preview
 @Composable
 fun detallePantallaPreview(){
-    detallePantalla(categoria = categoriasEnum.CAFETERIAS, LugarRecomendado = ProveedorDataLocal.obtenerLugares().get(0))
+   //detallePantalla(categoria = categoriasEnum.CAFETERIAS, LugarRecomendado = ProveedorDataLocal.obtenerLugares().get(0))
 }

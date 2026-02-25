@@ -1,17 +1,22 @@
 package com.example.benavidezapp.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.benavidezapp.navigation.Pantalla.RecoPantalla
 import com.example.benavidezapp.ui.BenavidezAppViewModel
 import com.example.benavidezapp.ui.pantallas.categorias.categoriasPantalla
+import com.example.benavidezapp.ui.pantallas.detalles.detallePantalla
 import com.example.benavidezapp.ui.pantallas.recomendaciones.recomendacionesPantalla
 
 sealed class Pantalla(val ruta: String){
     object CatPantalla: Pantalla("cat_pantalla")
     object RecoPantalla: Pantalla("rec_pantalla")
+    object DetallePantalla: Pantalla("det_pantalla")
 }
 
 @Composable
@@ -34,15 +39,21 @@ fun BenavidezApp(viewModel: BenavidezAppViewModel = BenavidezAppViewModel(), nav
             )
         }
         composable("rec_pantalla"){
-            recomendacionesPantalla(
-
+             val uiState by viewModel.uiState.collectAsState()
+            recomendacionesPantalla(listaLugaresFiltrada = uiState.listaLugares,
                 onItemClick = {
-                    viewModel.actualizarCategoriaSeleccionada(it)
-                    navController.navigate("rec")
+                   viewModel.actualizarLugarSeleccionado(it)
+                    navController.navigate(Pantalla.DetallePantalla.ruta)
                     //categoria ->
                     //navController.navigate("recomendaciones_pantalla/$categoria")
-                }
-            )
+                })
+
+        }
+
+        composable(Pantalla.DetallePantalla.ruta){
+            val uiState by viewModel.uiState.collectAsState()
+            detallePantalla(LugarRecomendado = uiState.lugarSeleccionado!!)
+
         }
 
 
