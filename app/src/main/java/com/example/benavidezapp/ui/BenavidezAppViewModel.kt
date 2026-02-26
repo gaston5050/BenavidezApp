@@ -17,16 +17,27 @@ class BenavidezAppViewModel : ViewModel(){
             listaLugares = ProveedorDataLocal.obtenerLugares()
             , categoriaSeleccionada = null
             , lugarSeleccionado = null
+            , titulo = null
+
             ))
     val uiState: StateFlow<BenavidezUiState> = _uiState.asStateFlow()
 
-    fun actualizarLugarSeleccionado(lugar: LugarRecomendado){
+    fun actualizarTitulo(titulo: Int){
         _uiState.update {
-            it.copy(lugarSeleccionado = lugar)}
+            it.copy(titulo = titulo)
         }
-    fun actualizarCategoriaSeleccionada(categoria: categoriasEnum) {
+    }
+    fun actualizarLugarSeleccionado(lugar: LugarRecomendado){
+
+        _uiState.update {
+            it.copy(lugarSeleccionado = lugar,
+                titulo = lugar.nombre)
+        }
+}   fun actualizarCategoriaSeleccionada(categoria: categoriasEnum) {
+
         _uiState.update{
             it.copy(categoriaSeleccionada= categoria,
+
                 listaLugares = ProveedorDataLocal.filtrado(categoria)
                 )
         }
@@ -35,8 +46,8 @@ class BenavidezAppViewModel : ViewModel(){
 
 
 
-    }
 
+}
 
 
 
@@ -46,8 +57,8 @@ class BenavidezAppViewModel : ViewModel(){
 data class BenavidezUiState(
     val listaLugares: List<LugarRecomendado> = emptyList(),
     val categoriaSeleccionada: categoriasEnum? = null,
-    val lugarSeleccionado: LugarRecomendado? = null
-
+    val lugarSeleccionado: LugarRecomendado? = null,
+    val titulo: Int? = null
     )
 
 
