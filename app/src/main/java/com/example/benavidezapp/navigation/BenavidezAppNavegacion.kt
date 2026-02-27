@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -33,17 +34,19 @@ sealed class Pantalla(val ruta: String){
 fun BenavidezApp(viewModel: BenavidezAppViewModel = BenavidezAppViewModel(), navController: NavHostController = rememberNavController()
 
 ) {
+    val uiState by viewModel.uiState.collectAsState()
+
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
-                    when(viewModel.uiState.value.titulo){
-
-                    }
-                },
-
-                )
+                    Text(text = stringResource(uiState.titulo))
+                })
         }
+
+
+
+
     ) { innerPadding ->
             Column(
                 modifier = Modifier.padding(innerPadding),

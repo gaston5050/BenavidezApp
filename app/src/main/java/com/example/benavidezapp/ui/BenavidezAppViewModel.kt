@@ -1,6 +1,7 @@
 package com.example.benavidezapp.ui
 
 import androidx.lifecycle.ViewModel
+import com.example.benavidezapp.R
 import com.example.benavidezapp.data.ProveedorDataLocal
 import com.example.benavidezapp.model.LugarRecomendado
 import com.example.benavidezapp.utils.categoriasEnum
@@ -17,14 +18,14 @@ class BenavidezAppViewModel : ViewModel(){
             listaLugares = ProveedorDataLocal.obtenerLugares()
             , categoriaSeleccionada = null
             , lugarSeleccionado = null
-            , titulo = null
+            , titulo = R.string.app_name
 
             ))
     val uiState: StateFlow<BenavidezUiState> = _uiState.asStateFlow()
 
     fun actualizarTitulo(titulo: Int){
         _uiState.update {
-            it.copy(titulo = titulo)
+            it.copy(titulo =titulo)
         }
     }
     fun actualizarLugarSeleccionado(lugar: LugarRecomendado){
@@ -58,7 +59,7 @@ data class BenavidezUiState(
     val listaLugares: List<LugarRecomendado> = emptyList(),
     val categoriaSeleccionada: categoriasEnum? = null,
     val lugarSeleccionado: LugarRecomendado? = null,
-    val titulo: Int? = null
+    val titulo: Int = 0
     )
 
 
