@@ -41,6 +41,6 @@ fun recomendacionesPantalla( listaLugaresFiltrada: List<LugarRecomendado>,
 @Composable
 fun categoriasPantallaPreview(){
 
+    recomendacionesPantalla(listaLugaresFiltrada = ProveedorDataLocal.obtenerLugares(), onItemClick = {})
 
-  //  recomendacionesPantalla(categoria = categoriasEnum.CAFETERIAS)
 }
