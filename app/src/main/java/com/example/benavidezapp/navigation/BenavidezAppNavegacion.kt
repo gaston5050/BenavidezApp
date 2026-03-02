@@ -9,14 +9,20 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.benavidezapp.R
 import com.example.benavidezapp.navigation.Pantalla.RecoPantalla
 import com.example.benavidezapp.ui.BenavidezAppViewModel
 import com.example.benavidezapp.ui.pantallas.categorias.categoriasPantalla
@@ -38,10 +44,7 @@ fun BenavidezApp(viewModel: BenavidezAppViewModel = BenavidezAppViewModel(), nav
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = stringResource(uiState.titulo))
-                })
+           BenaAppBar(navController)
         }
 
 
@@ -61,7 +64,7 @@ fun BenavidezApp(viewModel: BenavidezAppViewModel = BenavidezAppViewModel(), nav
 
                     onItemClick = {
                         viewModel.actualizarCategoriaSeleccionada(it)
-                        viewModel.actualizarTitulo(it.nombreRes)
+                       // viewModel.actualizarTitulo(it.nombreRes)
                         navController.navigate("rec_pantalla")
                         //categoria ->
                         //navController.navigate("recomendaciones_pantalla/$categoria")
@@ -98,21 +101,29 @@ fun BenavidezApp(viewModel: BenavidezAppViewModel = BenavidezAppViewModel(), nav
 //top bar personalizada
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BenaAppBar(){
+fun BenaAppBar(navController: NavHostController){
+
+  //  var topBarTitle by remember { mutableStateOf("Inicio") }
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    val titleResId = when (currentRoute) {
+           Pantalla.CatPantalla.ruta-> R.string.app_name
+            RecoPantalla.ruta-> R.string.recomendaciones
+            Pantalla.DetallePantalla.ruta-> R.string.detalle
+            else -> R.string.app_name
+        }
+
 
      TopAppBar(
          colors = TopAppBarDefaults.topAppBarColors(
              containerColor = MaterialTheme.colorScheme.primaryContainer,
              titleContentColor = MaterialTheme.colorScheme.primary,
          ),
-         title = TODO(),
-         modifier = TODO(),
-         navigationIcon = TODO(),
-         actions = TODO(),
-         expandedHeight = TODO(),
-         windowInsets = TODO(),
-         scrollBehavior = TODO(),
-     )
+         title = {
+             Text(text = stringResource(id = titleResId))
+         })
 
 }
+
 

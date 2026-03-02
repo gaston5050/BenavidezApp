@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">BenavidezApp</string>
+    <string name= "recomendaciones">Recomoendaciones</string>
+    <string name="detalle">Detalle</string>
 
         //categorias
         <string name="cat_cafeterias">Cafeterías</string>

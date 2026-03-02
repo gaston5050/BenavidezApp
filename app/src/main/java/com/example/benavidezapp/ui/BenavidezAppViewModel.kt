@@ -18,21 +18,15 @@ class BenavidezAppViewModel : ViewModel(){
             listaLugares = ProveedorDataLocal.obtenerLugares()
             , categoriaSeleccionada = null
             , lugarSeleccionado = null
-            , titulo = R.string.app_name
+
 
             ))
     val uiState: StateFlow<BenavidezUiState> = _uiState.asStateFlow()
 
-    fun actualizarTitulo(titulo: Int){
-        _uiState.update {
-            it.copy(titulo =titulo)
-        }
-    }
     fun actualizarLugarSeleccionado(lugar: LugarRecomendado){
 
         _uiState.update {
-            it.copy(lugarSeleccionado = lugar,
-                titulo = lugar.nombre)
+            it.copy(lugarSeleccionado = lugar)
         }
 }   fun actualizarCategoriaSeleccionada(categoria: categoriasEnum) {
 

@@ -13,7 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.benavidezapp.navigation.BenavidezApp
 import com.example.benavidezapp.ui.pantallas.categorias.categoriasPantalla
-import com.example.benavidezapp.ui.theme.BenavidezAppTheme
+//import com.example.benavidezapp.ui.theme.BenavidezAppTheme
+import com.example.compose.BenavidezAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
