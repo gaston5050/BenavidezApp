@@ -27,7 +27,8 @@ fun detallePantalla(LugarRecomendado: LugarRecomendado,modifier: Modifier = Modi
 
 
     Column(modifier = modifier.fillMaxWidth().padding(10.dp)) {
-        Image(painter = painterResource(id = LugarRecomendado.imagen), contentDescription = null, contentScale = ContentScale.FillWidth)
+        Image(painter = painterResource(id = LugarRecomendado.imagen), contentDescription = null,
+            modifier = Modifier.fillMaxWidth(),contentScale = ContentScale.Crop)
         Spacer(modifier = Modifier.size(10.dp))
         Text(text = stringResource(id = LugarRecomendado.nombre))
         Spacer(modifier = Modifier.size(10.dp))
@@ -46,5 +47,5 @@ fun detallePantalla(LugarRecomendado: LugarRecomendado,modifier: Modifier = Modi
 @Preview
 @Composable
 fun detallePantallaPreview(){
-   //detallePantalla(categoria = categoriasEnum.CAFETERIAS, LugarRecomendado = ProveedorDataLocal.obtenerLugares().get(0))
+   detallePantalla(LugarRecomendado = ProveedorDataLocal.obtenerLugares().get(0))
 }
