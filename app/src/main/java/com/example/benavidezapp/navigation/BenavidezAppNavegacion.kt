@@ -1,8 +1,12 @@
 package com.example.benavidezapp.navigation
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -29,6 +33,12 @@ import com.example.benavidezapp.ui.pantallas.categorias.categoriasPantalla
 import com.example.benavidezapp.ui.pantallas.detalles.detallePantalla
 import com.example.benavidezapp.ui.pantallas.recomendaciones.recomendacionesPantalla
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.ui.unit.dp
+
 sealed class Pantalla(val ruta: String){
     object CatPantalla: Pantalla("cat_pantalla")
     object RecoPantalla: Pantalla("rec_pantalla")
@@ -44,15 +54,18 @@ fun BenavidezApp(viewModel: BenavidezAppViewModel = BenavidezAppViewModel(), nav
 
     Scaffold(
         topBar = {
-           BenaAppBar(navController)
+           BenaAppBar(navController,
+               volver = { navController.navigate(Pantalla.CatPantalla.ruta) })
         }
 
 
 
 
     ) { innerPadding ->
+
             Column(
-                modifier = Modifier.padding(innerPadding),
+                modifier = Modifier.padding(innerPadding)
+                    .padding(10.dp)
 
             ){
 
@@ -101,7 +114,8 @@ fun BenavidezApp(viewModel: BenavidezAppViewModel = BenavidezAppViewModel(), nav
 //top bar personalizada
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BenaAppBar(navController: NavHostController){
+fun BenaAppBar(navController: NavHostController,
+               volver: () -> Unit){
 
   //  var topBarTitle by remember { mutableStateOf("Inicio") }
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -115,11 +129,19 @@ fun BenaAppBar(navController: NavHostController){
         }
 
 
-     TopAppBar(
+     CenterAlignedTopAppBar(
          colors = TopAppBarDefaults.topAppBarColors(
              containerColor = MaterialTheme.colorScheme.primaryContainer,
              titleContentColor = MaterialTheme.colorScheme.primary,
          ),
+         navigationIcon ={
+               if(currentRoute != Pantalla.CatPantalla.ruta){
+                    IconButton(onClick = { navController.navigateUp() }){
+                        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+
+                    }
+         }}
+         ,
          title = {
              Text(text = stringResource(id = titleResId))
          })
